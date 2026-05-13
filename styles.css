@@ -3388,20 +3388,13 @@ textarea:focus {
 ========================================= */
 
 .service-card h3 {
-  font-size: 2rem;
-
-  line-height: 1.06;
-
-  letter-spacing: -0.04em;
-
-  color: #fff;
-
-  margin: 0;
-
-  max-width: 280px;
-
-  transition:
-    transform 0.45s ease;
+    font-size: 23px;
+    line-height: 1.06;
+    letter-spacing: 0px;
+    color: #fff;
+    margin: 0;
+    max-width: 280px;
+    transition: transform 0.45s ease;
 }
 
 
@@ -5255,74 +5248,79 @@ section#contact .container.contact-grid.reveal-up.visible div {
 
 @media (max-width: 560px) {
 
-  .hero {
-    padding: 90px 0 70px;
-    min-height: auto;
+    .hero {
+      padding: 90px 0 70px;
+      min-height: auto;
+    }
+
+    .hero-layout {
+      gap: 32px;
+    }
+
+    .hero-inner {
+      text-align: left;
+    }
+
+    .hero-inner h1 {
+      font-size: clamp(2.1rem, 11vw, 3rem);
+      line-height: 1.08;
+      max-width: 100%;
+    }
+
+    .hero-copy {
+      font-size: 0.98rem;
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .btn {
+      width: 100%;
+      min-width: unset;
+      text-align: center;
+    }
+
+    .hero-composition {
+      width: 100%;
+      max-width: unset;
+      margin-left: -9%;
+    }
+
+    .hero-smoke {
+      width: 90vw;
+      height: 90vw;
+      left: 5%;
+      top: 8%;
+      opacity: 0.22;
+    }
+
+    .hero-bean-texture {
+      display: none;
+    }
+
+    .eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+    }
+    .container.hero-layout.reveal-up.visible {
+      padding-top: 0px !important;
+  }
+  h1, p.hero-copy {
+      text-align: center;
   }
 
-  .hero-layout {
-    gap: 32px;
+  .roastery-split {
+      grid-template-columns: auto !important;
   }
-
-  .hero-inner {
-    text-align: left;
+  .roastery-partner-logo img {
+      width: 100% !important;
+      margin-top: -18px !important;
+      display: block;
+      object-fit: contain;
   }
-
-  .hero-inner h1 {
-    font-size: clamp(2.1rem, 11vw, 3rem);
-    line-height: 1.08;
-    max-width: 100%;
-  }
-
-  .hero-copy {
-    font-size: 0.98rem;
-    line-height: 1.75;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .btn {
-    width: 100%;
-    min-width: unset;
-    text-align: center;
-  }
-
-  .hero-composition {
-    width: 100%;
-    max-width: unset;
-    margin-left: -9%;
-  }
-
-  .hero-smoke {
-    width: 90vw;
-    height: 90vw;
-    left: 5%;
-    top: 8%;
-    opacity: 0.22;
-  }
-
-  .hero-bean-texture {
-    display: none;
-  }
-
-  .eyebrow {
-    font-size: 0.7rem;
-    letter-spacing: 0.16em;
-  }
-  .container.hero-layout.reveal-up.visible {
-    padding-top: 0px !important;
-}
-h1, p.hero-copy {
-    text-align: center;
-}
-
-.roastery-split {
-    grid-template-columns: auto !important;
-}
-
 
 }
 
