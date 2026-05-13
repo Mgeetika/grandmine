@@ -2291,7 +2291,7 @@ p {
 }
 
 .service-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
   border-color: rgba(165, 106, 58, 0.5);
   box-shadow: 0 24px 48px rgba(8, 6, 5, 0.52), 0 0 0 1px rgba(165, 106, 58, 0.12);
 }
@@ -3196,17 +3196,25 @@ textarea:focus {
 #services {
   position: relative;
   overflow: hidden;
-
   padding: 130px 0 150px;
-
-  background:url('./serviceimg/COFFEE-BEANS-BG-SERVICE.png') ;
-
-  background-size: cover;
-  background-position: center;
-
   isolation: isolate;
+  background-color: #efe8df;
 }
 
+#services::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url('./serviceimg/COFFEE-BEANS-BG-SERVICE.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 1;
+
+  z-index: -1;
+}
 /* =========================================
    SECTION HEAD
 ========================================= */
@@ -3250,15 +3258,20 @@ textarea:focus {
 
 .services-grid {
   display: grid;
-
   grid-template-columns: 0.92fr 1.08fr 0.92fr;
-
-  align-items: end;
-
   gap: 28px;
+    align-items: stretch;
 }
 
+.service-card {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
 
+.service-card:hover {
+  transform: translateY(-8px);
+}
 /* =========================================
    CARD BASE
 ========================================= */
@@ -3467,7 +3480,9 @@ textarea:focus {
   transform: translateY(-6px);
 }
 
-
+.service-wedding {
+  min-height: 570px;
+}
 /* =========================================
    FEATURED CENTER CARD
 ========================================= */
@@ -3476,10 +3491,6 @@ textarea:focus {
   min-height: 570px;
 
   transform: translateY(-24px);
-}
-
-.service-wedding:hover {
-  transform: translateY(-36px);
 }
 
 
