@@ -162,7 +162,24 @@ p {
   border-radius: 999px;
   padding: 0.45rem 0.9rem;
 }
+.hero-visuals {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.hero-composition {
+  width: 571px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 24px 50px rgba(0, 0, 0, 0.38));
+
+  animation: heroFloat 6s ease-in-out infinite alternate;
+}
 .hero {
   position: relative;
   min-height: max(84vh, 700px);
@@ -177,12 +194,26 @@ p {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(112deg, rgba(18, 15, 13, 0.84) 14%, rgba(34, 24, 20, 0.58) 48%, rgba(43, 32, 25, 0.72) 96%),
-    url('./assets/hero-coffee-beans.png') center/cover;
+    linear-gradient(
+      112deg,
+      rgba(18, 15, 13, 0.84) 14%,
+      rgba(34, 24, 20, 0.58) 48%,
+      rgba(43, 32, 25, 0.72) 96%
+    ),
+    url('./assets/hero-coffee-beans.png') center / cover;
+
   transform: scale(1.04);
   will-change: transform;
 }
+@keyframes heroFloat {
+  from {
+    transform: translateY(0px);
+  }
 
+  to {
+    transform: translateY(-10px);
+  }
+}
 .hero-bean-texture {
   position: absolute;
   inset: auto -4% -18% auto;
@@ -220,22 +251,13 @@ p {
   animation: softFloat 14s ease-in-out infinite alternate;
   z-index: 1;
 }
-section#services {
-    background: url(./assets/service.png) !important;
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
-    background-size: cover !important;
-    background-attachment: scroll !important;
-    background-origin: padding-box !important;
-    background-clip: border-box !important;
-    background-color: transparent !important;
-}
+
 
 .hero-layout {
   position: relative;
   z-index: 3;
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1fr 1fr;
   gap: clamp(1rem, 4vw, 2.6rem);
   align-items: center;
   padding: clamp(3.8rem, 6vw, 5.8rem) 0;
@@ -367,12 +389,7 @@ section#services {
   box-shadow: 0 12px 26px rgba(8, 6, 5, 0.34);
 }
 
-.hero-note p {
-  margin: 0;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: rgba(242, 231, 218, 0.92);
-}
+
 
 .section-head p { max-width: 62ch; }
 
@@ -526,132 +543,9 @@ section#services {
 
 .muted { color: rgba(217, 199, 179, 0.8); }
 
-#roastery {
-  position: relative;
-  overflow: clip;
-  padding: clamp(2.2rem, 4vw, 3rem) 0;
-  border-top: 1px solid rgba(242, 231, 218, 0.1);
-  border-bottom: 1px solid rgba(242, 231, 218, 0.1);
-  background:
-    radial-gradient(1000px 420px at 76% 18%, rgba(165, 106, 58, 0.12), transparent 68%),
-    linear-gradient(180deg, rgba(22, 17, 14, 0.96), rgba(30, 22, 18, 0.94));
-}
 
-.roastery-split {
-  position: relative;
-  width: var(--container);
-  margin-inline: auto;
-  min-height: clamp(560px, 66vw, 760px);
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  align-items: stretch;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 16px 40px rgba(8, 6, 5, 0.34);
-}
 
-.roastery-content {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: clamp(2.8rem, 4.3vw, 4.2rem) clamp(1.3rem, 2.4vw, 2.6rem);
-  background: transparent;
-}
 
-.container-half-left {
-  width: min(560px, 100%);
-  margin: 0;
-}
-
-.roastery-content h2 {
-  font-size: clamp(1.34rem, 2vw, 1.92rem);
-  max-width: 18ch;
-  line-height: 1.24;
-}
-
-.roastery-content p {
-  max-width: 54ch;
-}
-
-.roastery-visual {
-  position: relative;
-  overflow: hidden;
-}
-
-.roastery-visual-image {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(500px 260px at 80% 16%, rgba(255, 192, 118, 0.12), transparent 68%),
-    url('./assets/coffee-partnership-scene.png') center 52% / cover;
-  filter: saturate(1.09) contrast(1.08) brightness(1.08);
-  transform: scale(1.03);
-  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 55%, rgba(0,0,0,0.85) 70%, rgba(0,0,0,0.35) 88%, transparent 100%);
-  mask-image: linear-gradient(to left, rgba(0,0,0,1) 55%, rgba(0,0,0,0.85) 70%, rgba(0,0,0,0.35) 88%, transparent 100%);
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-  -webkit-mask-position: left center;
-  mask-position: left center;
-}
-
-.roastery-visual::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(520px 260px at 85% 14%, rgba(255, 193, 116, 0.1), transparent 68%),
-    linear-gradient(90deg, rgba(10, 7, 5, 0.04), rgba(10, 7, 5, 0.08) 36%, rgba(10, 7, 5, 0.14) 100%);
-}
-
-#roastery .roastery-card {
-  margin-top: 1.2rem;
-  background: rgba(18, 15, 13, 0.48);
-  border: 1px solid rgba(165, 106, 58, 0.2);
-  box-shadow: 0 12px 24px rgba(8, 6, 5, 0.36), inset 0 1px 0 rgba(242, 231, 218, 0.06);
-  backdrop-filter: blur(8px);
-}
-
-#roastery .roastery-card h3 {
-  font-size: clamp(1.02rem, 1.3vw, 1.2rem);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: rgba(165, 106, 58, 0.94);
-  margin-bottom: 0.58rem;
-}
-
-#roastery .roastery-card ul {
-  list-style: none;
-  padding: 0;
-  margin: 0.4rem 0 0;
-}
-
-#roastery .roastery-card li {
-  position: relative;
-  padding: 0.58rem 0 0.58rem 1.12rem;
-  border-top: 1px solid rgba(242, 231, 218, 0.12);
-  color: rgba(242, 231, 218, 0.9);
-}
-
-#roastery .roastery-card li:first-child {
-  border-top: none;
-}
-
-#roastery .roastery-card li::before {
-  content: "";
-  position: absolute;
-  left: 0.05rem;
-  top: 0.98rem;
-  width: 7px;
-  height: 7px;
-  border-radius: 999px;
-  background: linear-gradient(160deg, #c3874f, #8a5a37);
-  box-shadow: 0 0 0 2px rgba(138, 90, 55, 0.18);
-}
 
 .story-strip {
   margin-top: 1.4rem;
@@ -914,20 +808,8 @@ textarea:focus {
     background: linear-gradient(180deg, rgba(18, 15, 13, 0.94), rgba(18, 15, 13, 0.88));
   }
 
-  .container-half-left {
-    width: min(620px, 100%);
-    margin-inline: auto;
-  }
 
-  .roastery-visual-image {
-    background:
-      radial-gradient(500px 260px at 80% 16%, rgba(255, 192, 118, 0.12), transparent 68%),
-      url('./assets/coffee-partnership-scene.png') center 50% / cover;
-    transform: none;
-    filter: saturate(1.08) contrast(1.06) brightness(1.06);
-    -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,1) 68%, rgba(0,0,0,0.42) 90%, transparent 100%);
-    mask-image: linear-gradient(180deg, rgba(0,0,0,1) 68%, rgba(0,0,0,0.42) 90%, transparent 100%);
-  }
+
 
   .founder-visual-wrap {
     min-height: 460px;
@@ -978,17 +860,7 @@ textarea:focus {
     margin-inline: auto;
   }
 
-  .hero-shot-main {
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(320px, 88vw);
-    height: 390px;
-  }
 
-  .hero-shot-bag {
-    left: 4%;
-    bottom: 20px;
-  }
 
   .hero-note {
     right: 5%;
@@ -2085,29 +1957,7 @@ p {
   background: linear-gradient(165deg, #1c1511, #2a1f19);
 }
 
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(112deg, rgba(18, 15, 13, 0.84) 14%, rgba(34, 24, 20, 0.58) 48%, rgba(43, 32, 25, 0.72) 96%),
-    url('./assets/hero-coffee-beans.png') center/cover;
-  transform: scale(1.04);
-  will-change: transform;
-}
 
-.hero-bean-texture {
-  position: absolute;
-  inset: auto -4% -18% auto;
-  width: min(42vw, 520px);
-  height: min(42vw, 520px);
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 50% 50%, rgba(18, 15, 13, 0.18), rgba(18, 15, 13, 0.48) 67%),
-    url('https://images.unsplash.com/photo-1494314671902-399b18174975?auto=format&fit=crop&w=1200&q=80') center/cover;
-  border: 1px solid rgba(242, 231, 218, 0.12);
-  opacity: 0.8;
-  z-index: 1;
-}
 
 .hero-overlay {
   position: absolute;
@@ -2269,12 +2119,6 @@ p {
   box-shadow: 0 12px 26px rgba(8, 6, 5, 0.34);
 }
 
-.hero-note p {
-  margin: 0;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: rgba(242, 231, 218, 0.92);
-}
 
 .section-head p { max-width: 62ch; }
 
@@ -2479,7 +2323,7 @@ p {
 }
 
 
-.roastery-card,
+
 .proof-card,
 .lead-form {
   border: 1px solid rgba(242, 231, 218, 0.15);
@@ -2488,137 +2332,8 @@ p {
   box-shadow: var(--shadow);
 }
 
-.roastery-card { padding: 1.2rem; }
-.roastery-card ul { margin: 0.8rem 0 0; padding-left: 1.15rem; }
 
 .muted { color: rgba(217, 199, 179, 0.8); }
-
-#roastery {
-  position: relative;
-  overflow: clip;
-  padding: clamp(2.2rem, 4vw, 3rem) 0;
-  border-top: 1px solid rgba(242, 231, 218, 0.1);
-  border-bottom: 1px solid rgba(242, 231, 218, 0.1);
-  background:
-    radial-gradient(1000px 420px at 76% 18%, rgba(165, 106, 58, 0.12), transparent 68%),
-    linear-gradient(180deg, rgba(22, 17, 14, 0.96), rgba(30, 22, 18, 0.94));
-}
-
-.roastery-split {
-  position: relative;
-  width: var(--container);
-  margin-inline: auto;
-  min-height: clamp(560px, 66vw, 760px);
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  align-items: stretch;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 16px 40px rgba(8, 6, 5, 0.34);
-}
-
-.roastery-content {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: clamp(2.8rem, 4.3vw, 4.2rem) clamp(1.3rem, 2.4vw, 2.6rem);
-  background: transparent;
-}
-
-.container-half-left {
-  width: min(560px, 100%);
-  margin: 0;
-}
-
-.roastery-content h2 {
-  font-size: clamp(1.34rem, 2vw, 1.92rem);
-  max-width: 18ch;
-  line-height: 1.24;
-}
-
-.roastery-content p {
-  max-width: 54ch;
-}
-
-.roastery-visual {
-  position: relative;
-  overflow: hidden;
-}
-
-.roastery-visual-image {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(500px 260px at 80% 16%, rgba(255, 192, 118, 0.12), transparent 68%),
-    url('./assets/coffee-partnership-scene.png') center 52% / cover;
-  filter: saturate(1.09) contrast(1.08) brightness(1.08);
-  transform: scale(1.03);
-  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 55%, rgba(0,0,0,0.85) 70%, rgba(0,0,0,0.35) 88%, transparent 100%);
-  mask-image: linear-gradient(to left, rgba(0,0,0,1) 55%, rgba(0,0,0,0.85) 70%, rgba(0,0,0,0.35) 88%, transparent 100%);
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-  -webkit-mask-position: left center;
-  mask-position: left center;
-}
-
-.roastery-visual::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(520px 260px at 85% 14%, rgba(255, 193, 116, 0.1), transparent 68%),
-    linear-gradient(90deg, rgba(10, 7, 5, 0.04), rgba(10, 7, 5, 0.08) 36%, rgba(10, 7, 5, 0.14) 100%);
-}
-
-#roastery .roastery-card {
-  margin-top: 1.2rem;
-  background: rgba(18, 15, 13, 0.48);
-  border: 1px solid rgba(165, 106, 58, 0.2);
-  box-shadow: 0 12px 24px rgba(8, 6, 5, 0.36), inset 0 1px 0 rgba(242, 231, 218, 0.06);
-  backdrop-filter: blur(8px);
-}
-
-#roastery .roastery-card h3 {
-  font-size: clamp(1.02rem, 1.3vw, 1.2rem);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: rgba(165, 106, 58, 0.94);
-  margin-bottom: 0.58rem;
-}
-
-#roastery .roastery-card ul {
-  list-style: none;
-  padding: 0;
-  margin: 0.4rem 0 0;
-}
-
-#roastery .roastery-card li {
-  position: relative;
-  padding: 0.58rem 0 0.58rem 1.12rem;
-  border-top: 1px solid rgba(242, 231, 218, 0.12);
-  color: rgba(242, 231, 218, 0.9);
-}
-
-#roastery .roastery-card li:first-child {
-  border-top: none;
-}
-
-#roastery .roastery-card li::before {
-  content: "";
-  position: absolute;
-  left: 0.05rem;
-  top: 0.98rem;
-  width: 7px;
-  height: 7px;
-  border-radius: 999px;
-  background: linear-gradient(160deg, #c3874f, #8a5a37);
-  box-shadow: 0 0 0 2px rgba(138, 90, 55, 0.18);
-}
 
 .story-strip {
   margin-top: 1.4rem;
@@ -2905,20 +2620,8 @@ textarea:focus {
     background: linear-gradient(180deg, rgba(18, 15, 13, 0.94), rgba(18, 15, 13, 0.88));
   }
 
-  .container-half-left {
-    width: min(620px, 100%);
-    margin-inline: auto;
-  }
 
-  .roastery-visual-image {
-    background:
-      radial-gradient(500px 260px at 80% 16%, rgba(255, 192, 118, 0.12), transparent 68%),
-      url('./assets/coffee-partnership-scene.png') center 50% / cover;
-    transform: none;
-    filter: saturate(1.08) contrast(1.06) brightness(1.06);
-    -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,1) 68%, rgba(0,0,0,0.42) 90%, transparent 100%);
-    mask-image: linear-gradient(180deg, rgba(0,0,0,1) 68%, rgba(0,0,0,0.42) 90%, transparent 100%);
-  }
+
 
   .founder-visual-wrap {
     min-height: 460px;
@@ -2964,7 +2667,6 @@ textarea:focus {
 
   .hero-visuals {
     min-height: 470px;
-    width: min(420px, 100%);
     margin-inline: auto;
   }
 
@@ -3020,15 +2722,7 @@ textarea:focus {
     min-height: 440px;
   }
 
-  .hero-shot-main {
-    height: 350px;
-  }
-
-  .hero-shot-bag {
-    width: 145px;
-    height: 200px;
-  }
-
+  
   .founder-visual-wrap {
     min-height: 430px;
   }
@@ -3496,114 +3190,72 @@ textarea:focus {
   }
 }
 
-
-
-
-
 /* =========================================
-   SERVICES SECTION — LIGHT EDITORIAL THEME
+   SERVICES SECTION
 ========================================= */
-
 #services {
-  position: relative !important;
+  position: relative;
+  overflow: hidden;
 
-  overflow: hidden !important;
+  padding: 130px 0 150px;
 
-  padding: 130px 0 150px !important;
+  background:url('./serviceimg/COFFEE-BEANS-BG-SERVICE.png') ;
 
-  background:
-    radial-gradient(
-      circle at top left,
-      rgba(119, 100, 86, 0.08),
-      transparent 26%
-    ),
+  background-size: cover;
+  background-position: center;
 
-    linear-gradient(
-      180deg,
-      #EFEDE9 0%,
-      #E8E2D8 100%
-    ) !important;
+  isolation: isolate;
 }
-
-
-/* subtle warm texture */
-
-#services::before {
-  content: "" !important;
-
-  position: absolute !important;
-  inset: 0 !important;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(119, 100, 86, 0.03),
-      transparent 20%,
-      transparent 80%,
-      rgba(119, 100, 86, 0.03)
-    ) !important;
-
-  pointer-events: none !important;
-}
-
 
 /* =========================================
-   HEADER
+   SECTION HEAD
 ========================================= */
 
 #services .section-head {
-  text-align: center !important;
+  text-align: center;
 
-  max-width: 980px !important;
+  max-width: 920px;
 
-  margin: 0 auto 90px !important;
-
-  position: relative !important;
-
-  z-index: 2 !important;
+  margin: 0 auto 90px;
 }
-
-
-/* eyebrow */
 
 #services .eyebrow {
-  color: #918981 !important;
-
-  letter-spacing: 0.18em !important;
+    color: #9c6b3f !important;
+    letter-spacing: 0.18em;
+    margin-bottom: 18px;
 }
 
+#services h2 {
+  color: #7a4f2d;
 
-/* description */
+  max-width: 720px;
 
-#services .section-head p:not(.eyebrow) {
-  max-width: 760px !important;
+  margin-inline: auto;
+}
 
-  margin: 28px auto 0 !important;
+#services .section-head p:last-child {
+  max-width: 760px;
 
-  font-size: 1.05rem !important;
+  margin: 24px auto 0;
 
-  line-height: 1.9 !important;
+  color: #776456;
 
-  color: #776456 !important;
+  line-height: 1.9;
 }
 
 
 /* =========================================
-   SERVICES GRID
+   GRID
 ========================================= */
 
 .services-grid {
-  display: grid !important;
+  display: grid;
 
-  grid-template-columns: 0.9fr 1.1fr 0.9fr !important;
+  grid-template-columns: 0.92fr 1.08fr 0.92fr;
 
-  align-items: end !important;
+  align-items: end;
 
-  gap: 32px !important;
-
-  position: relative !important;
-
-  z-index: 2 !important;
+  gap: 28px;
 }
 
 
@@ -3612,130 +3264,103 @@ textarea:focus {
 ========================================= */
 
 .service-card {
-  position: relative !important;
+  position: relative;
 
-  overflow: hidden !important;
+  overflow: hidden;
 
-  border-radius: 32px !important;
+  border-radius: 32px;
 
-  min-height: 540px !important;
+  min-height: 540px;
 
-  padding: 38px !important;
+  padding: 34px;
 
-  display: flex !important;
+  display: flex;
 
-  flex-direction: column !important;
+  align-items: flex-end;
 
-  justify-content: flex-end !important;
+  isolation: isolate;
 
-  isolation: isolate !important;
-
-  border: 1px solid rgba(81, 67, 58, 0.08) !important;
-
-  background: #DED5C6 !important;
+  cursor: pointer;
 
   transition:
-    transform 0.45s ease,
-    box-shadow 0.45s ease,
-    border-color 0.45s ease !important;
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
 
   box-shadow:
-    0 10px 30px rgba(81, 67, 58, 0.08),
-    0 30px 60px rgba(81, 67, 58, 0.05) !important;
-}
-
-
-/* hover */
-
-.service-card:hover {
-  transform: translateY(-10px) !important;
-
-  border-color: rgba(81, 67, 58, 0.18) !important;
-
-  box-shadow:
-    0 18px 40px rgba(81, 67, 58, 0.12),
-    0 40px 90px rgba(81, 67, 58, 0.10) !important;
+    0 10px 30px rgba(0,0,0,0.08),
+    0 24px 60px rgba(0,0,0,0.12);
 }
 
 
 /* =========================================
-   IMAGE LAYER
+   IMAGES
 ========================================= */
 
 .service-card::before {
-  content: "" !important;
+  content: "";
 
-  position: absolute !important;
-  inset: 0 !important;
+  position: absolute;
+  inset: 0;
 
-  background-size: cover !important;
-  background-position: center !important;
+  background-size: cover;
+  background-position: center;
 
   transition:
-    transform 0.7s ease,
-    filter 0.7s ease !important;
+    transform 0.9s ease,
+    filter 0.9s ease;
 
-  z-index: -3 !important;
+  z-index: -3;
 }
 
 
-/* LIGHT OVERLAY */
-
-.service-card::after {
-  content: "" !important;
-
-  position: absolute !important;
-  inset: 0 !important;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(239, 237, 233, 0.02) 0%,
-      rgba(48, 39, 32, 0.12) 40%,
-      rgba(12, 13, 11, 0.72) 100%
-    ) !important;
-
-  z-index: -2 !important;
-}
-
-
-/* image hover */
-
-.service-card:hover::before {
-  transform: scale(1.04) !important;
-
-  filter: brightness(1.04) !important;
-}
-
-
-/* =========================================
-   BACKGROUND IMAGES
-========================================= */
+/* CARD IMAGES */
 
 .service-popup::before {
   background-image:
-    url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1500&q=80') !important;
+    url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1400&q=80');
 }
 
 .service-wedding::before {
   background-image:
-    url('https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1200&q=80') !important;
+    url('https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1400&q=80');
 }
 
 .service-cafe::before {
   background-image:
-    url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1200&q=80') !important;
+    url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1400&q=80');
 }
 
 
 /* =========================================
-   MIDDLE CARD
+   DARK PREMIUM OVERLAY
 ========================================= */
 
-.service-wedding {
-  min-height: 556px !important;
+.service-overlay {
+  position: absolute;
+  inset: 0;
 
-  transform: translateY(-30px) !important;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,0.08) 0%,
+      rgba(0,0,0,0.18) 36%,
+      rgba(0,0,0,0.88) 100%
+    );
+
+  z-index: -2;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.service-content {
+  width: 100%;
+
+  position: relative;
+
+  z-index: 2;
 }
 
 
@@ -3744,58 +3369,117 @@ textarea:focus {
 ========================================= */
 
 .service-kicker {
-  font-size: 1.15rem !important;
+  font-size: 0.95rem;
 
-  font-weight: 700 !important;
+  font-weight: 700;
 
-  letter-spacing: 0.08em !important;
+  letter-spacing: 0.08em;
 
-  color: #DED5C6 !important;
+  color: rgba(255,255,255,0.72);
 
-  margin-bottom: 16px !important;
+  margin-bottom: 18px;
 }
 
 
 /* =========================================
-   TITLES
+   TITLE
 ========================================= */
 
 .service-card h3 {
-  font-size: 2rem !important;
+  font-size: 2rem;
 
-  line-height: 1.08 !important;
+  line-height: 1.06;
 
-  letter-spacing: -0.04em !important;
+  letter-spacing: -0.04em;
 
-  color: #EFEDE9 !important;
+  color: #fff;
 
-  margin-bottom: 16px !important;
+  margin: 0;
 
-  max-width: 320px !important;
+  max-width: 280px;
+
+  transition:
+    transform 0.45s ease;
 }
 
 
 /* =========================================
-   TEXT
+   DESCRIPTION ANIMATION
 ========================================= */
 
-.service-card p:last-child {
-  font-size: 1rem !important;
+.service-description {
+  max-height: 0;
 
-  line-height: 1.85 !important;
+  overflow: hidden;
 
-  color: rgba(239, 237, 233, 0.88) !important;
+  opacity: 0;
 
-  max-width: 360px !important;
+  transform: translateY(22px);
+
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease,
+    max-height 0.45s ease;
+
+  will-change: transform, opacity;
+}
+
+.service-description p {
+  margin-top: 18px;
+
+  color: rgba(255,255,255,0.78);
+
+  line-height: 1.8;
+
+  font-size: 0.96rem;
+
+  max-width: 320px;
 }
 
 
 /* =========================================
-   REMOVE BEANS
+   HOVER EFFECT
 ========================================= */
 
-.service-bean {
-  display: none !important;
+.service-card:hover {
+  transform: translateY(-12px);
+
+  box-shadow:
+    0 24px 60px rgba(0,0,0,0.16),
+    0 40px 90px rgba(0,0,0,0.18);
+}
+
+.service-card:hover::before {
+  transform: scale(1.06);
+
+  filter: brightness(1.02);
+}
+
+.service-card:hover .service-description {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  max-height: 200px;
+}
+
+.service-card:hover h3 {
+  transform: translateY(-6px);
+}
+
+
+/* =========================================
+   FEATURED CENTER CARD
+========================================= */
+
+.service-wedding {
+  min-height: 570px;
+
+  transform: translateY(-24px);
+}
+
+.service-wedding:hover {
+  transform: translateY(-36px);
 }
 
 
@@ -3806,16 +3490,19 @@ textarea:focus {
 @media (max-width: 1100px) {
 
   .services-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr;
   }
 
   .service-wedding {
-    transform: none !important;
+    transform: none;
   }
 
-  .service-card,
-  .service-wedding {
-    min-height: 480px !important;
+  .service-wedding:hover {
+    transform: translateY(-12px);
+  }
+
+  .service-card {
+    min-height: 500px;
   }
 }
 
@@ -3827,512 +3514,38 @@ textarea:focus {
 @media (max-width: 768px) {
 
   #services {
-    padding: 100px 0 !important;
-  }
-
-  .services-grid {
-    gap: 24px !important;
-  }
-
-  .service-card {
-    min-height: 420px !important;
-
-    padding: 30px !important;
-  }
-
-  .service-card h3 {
-    font-size: 1.7rem !important;
+    padding: 90px 0;
   }
 
   #services .section-head {
-    margin-bottom: 60px !important;
+    margin-bottom: 54px;
+  }
+
+  .services-grid {
+    gap: 22px;
+  }
+
+  .service-card {
+    min-height: 420px;
+
+    padding: 28px;
+  }
+
+  .service-card h3 {
+    font-size: 1.7rem;
+  }
+
+  .service-description {
+    opacity: 1;
+
+    transform: none;
+
+    max-height: 200px;
   }
 }
 
 
 
-/* =========================================
-   ROASTERY SECTION — FINAL BALANCED VERSION
-========================================= */
-
-#roastery {
-  position: relative !important;
-  overflow: hidden !important;
-
-  padding: 90px 0 !important;
-
-  background:
-    radial-gradient(
-      circle at top left,
-      rgba(119, 100, 86, 0.05),
-      transparent 28%
-    ),
-
-    linear-gradient(
-      180deg,
-      #EFEDE9 0%,
-      #E7E1D8 100%
-    ) !important;
-}
-
-
-/* =========================================
-   MAIN WRAPPER
-========================================= */
-
-.roastery-split {
-  position: relative !important;
-
-  max-width: 1280px !important;
-
-  margin: 0 auto !important;
-
-  display: grid !important;
-
-  grid-template-columns: 0.95fr 1.05fr !important;
-
-  min-height: 540px !important;
-
-  border-radius: 30px !important;
-
-  overflow: hidden !important;
-
-  background: #F6F2EC !important;
-
-  border: 1px solid rgba(81, 67, 58, 0.08) !important;
-
-  box-shadow:
-    0 10px 30px rgba(81, 67, 58, 0.05),
-    0 24px 70px rgba(81, 67, 58, 0.08) !important;
-}
-
-
-/* =========================================
-   LEFT CONTENT
-========================================= */
-
-.roastery-content {
-    position: relative !important;
-    z-index: 2 !important;
-    padding: 32px 48px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    background: #F6F2EC !important;
-}
-
-
-/* subtle divider */
-
-.roastery-content::after {
-  content: "" !important;
-
-  position: absolute !important;
-
-  top: 12% !important;
-  right: 0 !important;
-
-  width: 1px !important;
-  height: 76% !important;
-
-  background:
-    linear-gradient(
-      180deg,
-      transparent,
-      rgba(81, 67, 58, 0.10),
-      transparent
-    ) !important;
-}
-
-
-/* =========================================
-   TYPOGRAPHY
-========================================= */
-
-.roastery-content .eyebrow {
-  margin-bottom: 16px !important;
-
-  font-size: 0.78rem !important;
-
-  letter-spacing: 0.18em !important;
-
-  text-transform: uppercase !important;
-
-  color: #9C6B3F !important;
-
-  font-weight: 700 !important;
-}
-
-
-.roastery-content p {
-  max-width: 500px !important;
-
-  font-size: 0.98rem !important;
-
-  line-height: 1.8 !important;
-
-  color: #776456 !important;
-
-  margin-bottom: 18px !important;
-}
-
-
-.roastery-content .muted {
-  color: #918981 !important;
-
-  font-size: 0.96rem !important;
-
-  margin-bottom: 28px !important;
-}
-
-
-/* =========================================
-   FEATURE CARD
-========================================= */
-
-.roastery-card {
-  width: 100% !important;
-
-  max-width: 460px !important;
-
-  padding: 24px !important;
-
-  border-radius: 22px !important;
-
-  background: #EFEAE2 !important;
-
-  border: 1px solid rgba(81, 67, 58, 0.08) !important;
-
-  box-shadow:
-    0 8px 20px rgba(81, 67, 58, 0.05) !important;
-}
-
-
-/* card title */
-
-.roastery-card h3 {
-  font-size: 0.95rem !important;
-
-  letter-spacing: 0.14em !important;
-
-  text-transform: uppercase !important;
-
-  color: #9C6B3F !important;
-
-  margin-bottom: 18px !important;
-
-  font-weight: 700 !important;
-}
-
-
-/* =========================================
-   LIST
-========================================= */
-
-.roastery-card ul {
-  list-style: none !important;
-
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-
-.roastery-card li {
-  position: relative !important;
-
-  padding:
-    14px
-    0
-    14px
-    28px !important;
-
-  color: #51433A !important;
-
-  font-size: 0.96rem !important;
-
-  border-bottom: 1px solid rgba(81, 67, 58, 0.08) !important;
-}
-
-
-.roastery-card li:last-child {
-  border-bottom: none !important;
-}
-
-
-/* bullet */
-
-.roastery-card li::before {
-  content: "" !important;
-
-  position: absolute !important;
-
-  left: 0 !important;
-  top: 21px !important;
-
-  width: 8px !important;
-  height: 8px !important;
-
-  border-radius: 50% !important;
-
-  background:
-    radial-gradient(
-      circle at 30% 30%,
-      #E8BC7A,
-      #9C6B3F
-    ) !important;
-}
-
-
-/* =========================================
-   IMAGE SIDE
-========================================= */
-
-.roastery-visual {
-  position: relative !important;
-
-  min-height: 540px !important;
-
-  overflow: hidden !important;
-
-  background: #302720 !important;
-}
-
-
-/* image */
-
-.roastery-visual-image {
-  position: absolute !important;
-
-  inset: 0 !important;
-
-  background-image:
-    linear-gradient(
-      180deg,
-      rgba(12,13,11,0.08),
-      rgba(12,13,11,0.38)
-    ),
-
-    url('./assets/coffee-partnership-scene.png') !important;
-
-  background-size: cover !important;
-
-  background-position: center !important;
-
-  transition: transform 1s ease !important;
-}
-
-
-/* soft vignette */
-
-.roastery-visual::after {
-  content: "" !important;
-
-  position: absolute !important;
-
-  inset: 0 !important;
-
-  background:
-    radial-gradient(
-      circle at center,
-      transparent 55%,
-      rgba(0,0,0,0.12)
-    ) !important;
-}
-
-
-/* hover */
-
-.roastery-split:hover .roastery-visual-image {
-  transform: scale(1.03) !important;
-}
-
-
-/* =========================================
-   RESPONSIVE
-========================================= */
-
-@media (max-width: 1100px) {
-
-  .roastery-split {
-    grid-template-columns: 1fr !important;
-  }
-
-  .roastery-content {
-    padding: 48px 34px !important;
-  }
-
-  .roastery-content::after {
-    display: none !important;
-  }
-
-  .roastery-visual {
-    min-height: 420px !important;
-  }
-}
-
-
-@media (max-width: 768px) {
-
-  #roastery {
-    padding: 70px 0 !important;
-  }
-
-  .roastery-content {
-    padding: 38px 22px !important;
-  }
-
-  .roastery-card {
-    max-width: 100% !important;
-  }
-
-  .roastery-visual {
-    min-height: 340px !important;
-  }
-}
-
-
-
-
-/* =========================================
-   COMPACT FEATURE CARD
-========================================= */
-
-.roastery-card {
-  width: 100% !important;
-
-  max-width: 460px !important;
-
-  padding: 22px !important;
-
-  border-radius: 20px !important;
-
-  background: #EFEAE2 !important;
-
-  border: 1px solid rgba(81, 67, 58, 0.08) !important;
-
-  box-shadow:
-    0 8px 20px rgba(81, 67, 58, 0.04) !important;
-}
-
-
-/* title */
-
-.roastery-card h3 {
-  font-size: 0.88rem !important;
-
-  letter-spacing: 0.14em !important;
-
-  text-transform: uppercase !important;
-
-  color: #9C6B3F !important;
-
-  margin-bottom: 18px !important;
-
-  font-weight: 700 !important;
-}
-
-
-/* feature grid */
-
-.roastery-features {
-  display: grid !important;
-
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-
-  gap: 12px !important;
-}
-
-
-/* feature item */
-
-.roastery-features span {
-  position: relative !important;
-
-  display: flex !important;
-
-  align-items: center !important;
-
-  min-height: 54px !important;
-
-  padding: 14px 14px 14px 38px !important;
-
-  border-radius: 14px !important;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0.40),
-      rgba(255,255,255,0.15)
-    ) !important;
-
-  border: 1px solid rgba(81, 67, 58, 0.06) !important;
-
-  font-size: 0.92rem !important;
-
-  line-height: 1.45 !important;
-
-  color: #51433A !important;
-
-  transition:
-    transform 0.3s ease,
-    border-color 0.3s ease,
-    background 0.3s ease !important;
-}
-
-
-/* bullet */
-
-.roastery-features span::before {
-  content: "" !important;
-
-  position: absolute !important;
-
-  left: 16px !important;
-  top: 50% !important;
-
-  transform: translateY(-50%) !important;
-
-  width: 8px !important;
-  height: 8px !important;
-
-  border-radius: 50% !important;
-
-  background:
-    radial-gradient(
-      circle at 30% 30%,
-      #E8BC7A,
-      #9C6B3F
-    ) !important;
-}
-
-
-/* hover */
-
-.roastery-features span:hover {
-  transform: translateY(-2px) !important;
-
-  border-color: rgba(156,107,63,0.14) !important;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0.58),
-      rgba(255,255,255,0.24)
-    ) !important;
-}
-
-
-/* mobile */
-
-@media (max-width: 768px) {
-
-  .roastery-features {
-    grid-template-columns: 1fr !important;
-  }
-}
-.roastery-card {
-    display: none;
-}
 
 
 /* =========================================
@@ -5749,13 +4962,6 @@ textarea:focus {
 
   /* IMAGE */
 
-  .roastery-visual {
-    min-height: 300px !important;
-
-    height: 300px !important;
-
-    order: 2 !important;
-  }
 
   .roastery-visual-image {
     background-position: center center !important;
@@ -5817,10 +5023,7 @@ h1 {
     align-items: center;
     justify-items: center;
 }
-.hero-note {
-    right: -1% !important;
-    width: 169px !important;
-}
+
 h2 {
     font-size: 22px !important;
 }
@@ -5832,5 +5035,135 @@ section#contact .container.contact-grid.reveal-up.visible div {
     display: grid;
     justify-items: center !important;
 }
+
+}
+.hero-bean-texture {
+    display: none;
+}
+.roastery-card {
+    display: none;
+}
+/* =========================
+   ROASTERY SECTION
+========================= */
+
+.roastery-split {
+    position: relative !important;
+    max-width: 1280px !important;
+    margin: 0 auto !important;
+    display: grid !important;
+    grid-template-columns: 0.95fr 1.05fr !important;
+    min-height: 540px !important;
+    border-radius: 30px !important;
+    overflow: hidden !important;
+    background: #F6F2EC !important;
+    border: 1px solid rgba(81, 67, 58, 0.08) !important;
+    box-shadow: 0 10px 30px rgba(81, 67, 58, 0.05), 0 24px 70px rgba(81, 67, 58, 0.08) !important;
+}
+
+.roastery-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 90px 80px;
+  max-width: 640px;
+}
+
+.roastery-content .eyebrow {
+    margin-bottom: 16px !important;
+    font-size: 0.78rem !important;
+    letter-spacing: 0.18em !important;
+    text-transform: uppercase !important;
+    color: #9C6B3F !important;
+    font-weight: 700 !important;
+}
+.roastery-content p {
+    max-width: 500px !important;
+    font-size: 0.98rem !important;
+    line-height: 1.8 !important;
+    color: #776456 !important;
+    margin-bottom: 18px !important;
+}
+
+.roastery-content .muted {
+  color: #9c8f82;
+}
+
+.roastery-card {
+  margin-top: 36px;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(139,94,52,0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 28px;
+  max-width: 460px;
+}
+
+.roastery-card h3 {
+  margin-bottom: 18px;
+  font-size: 1.1rem;
+  color: #2b2118;
+}
+
+.roastery-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.roastery-card li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 14px;
+  color: #5f5247;
+}
+
+.roastery-card li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #8b5e34;
+}
+
+.roastery-visual {
+    position: relative;
+    height: 100%;
+    /* overflow: hidden; */
+}
+.roastery-visual-image {
+    position: absolute !important;
+    inset: 0 !important;
+    background-image: linear-gradient(180deg, rgba(12, 13, 11, 0.08), rgba(12, 13, 11, 0.38)), url(./assets/coffee-partnership-scene.png) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    transition: transform 1s ease !important;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 980px) {
+
+  .roastery-split {
+    grid-template-columns: 1fr;
+  }
+
+  .roastery-content {
+    padding: 70px 34px;
+    max-width: 100%;
+  }
+
+  .roastery-visual {
+    min-height: 520px;
+  }
+
+  .roastery-content h2 {
+    font-size: 2.6rem;
+  }
 
 }
